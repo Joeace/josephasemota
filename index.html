@@ -4,28 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Joseph Asemota - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
         }
         body {
             background: #f0f0f0;
             color: #333;
             line-height: 1.6;
+            font-family: 'Roboto', sans-serif;
             overflow-x: hidden;
         }
         /* Navigation Bar */
         nav {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             position: fixed;
             width: 100%;
             padding: 20px 0;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             z-index: 1000;
+            animation: slideDown 0.5s ease-out;
+        }
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
         }
         nav ul {
             display: flex;
@@ -33,48 +39,85 @@
             list-style: none;
         }
         nav ul li {
-            margin: 0 20px;
+            margin: 0 25px;
         }
         nav ul li a {
             text-decoration: none;
             color: #333;
-            font-weight: bold;
-            transition: color 0.3s;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2em;
+            font-weight: 700;
+            transition: color 0.3s ease;
         }
         nav ul li a:hover {
-            color: #007bff;
+            color: #ff6f61;
         }
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(135deg, #007bff, #00c4cc);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-slider {
+            width: 300%;
+            height: 100%;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            animation: slide 15s infinite ease-in-out;
+        }
+        .hero-slide {
+            width: 33.33%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+        .hero-slide:nth-child(1) {
+            background-image: url('https://images.unsplash.com/photo-1455390582262-044cdead681a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); /* Writing */
+        }
+        .hero-slide:nth-child(2) {
+            background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); /* Happy Customers */
+        }
+        .hero-slide:nth-child(3) {
+            background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); /* Beachside */
+        }
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            33% { transform: translateX(-33.33%); }
+            66% { transform: translateX(-66.66%); }
+            100% { transform: translateX(0); }
+        }
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             text-align: center;
             color: #fff;
-            padding: 0 20px;
         }
-        .hero h1 {
-            font-size: 3em;
-            animation: fadeIn 2s ease-in-out;
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4em;
+            font-weight: 700;
         }
-        .hero p {
+        .hero-content p {
             font-size: 1.5em;
             margin-top: 20px;
-            animation: fadeIn 2s ease-in-out 0.5s;
+            animation: fadeIn 2s ease-in-out 1s;
             animation-fill-mode: both;
         }
-        /* About Section */
-        .about {
+        /* Sections */
+        .section {
             padding: 80px 20px;
-            background: #fff;
             text-align: center;
         }
-        .about h2 {
+        .section h2 {
+            font-family: 'Playfair Display', serif;
             font-size: 2.5em;
             margin-bottom: 20px;
             animation: slideIn 1s ease-out;
+        }
+        /* About Section */
+        .about {
+            background: #fff;
         }
         .about p {
             max-width: 800px;
@@ -83,16 +126,36 @@
             animation: slideIn 1s ease-out 0.3s;
             animation-fill-mode: both;
         }
+        /* New Sections */
+        .service-container {
+            display: flex;
+            max-width: 1000px;
+            margin: 40px auto;
+            align-items: center;
+            gap: 40px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        .service-container img {
+            width: 50%;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        .service-container img:hover {
+            transform: scale(1.05);
+        }
+        .service-container p {
+            width: 50%;
+            font-size: 1.1em;
+        }
+        .blog-writing { background: #f8f9fa; }
+        .creative-writing { background: #fff; }
+        .business-writing { background: #f8f9fa; }
         /* Testimonials Section */
         .testimonials {
-            padding: 80px 20px;
             background: #f8f9fa;
-            text-align: center;
-        }
-        .testimonials h2 {
-            font-size: 2.5em;
-            margin-bottom: 40px;
-            animation: slideIn 1s ease-out;
         }
         .testimonial-container {
             display: flex;
@@ -122,27 +185,17 @@
         .testimonial img:hover {
             transform: scale(1.1);
         }
-        .testimonial p {
-            font-style: italic;
-        }
-        .testimonial h4 {
-            margin-top: 10px;
-            color: #007bff;
-        }
-        /* Footer / Contact Section */
+        .testimonial p { font-style: italic; }
+        .testimonial h4 { margin-top: 10px; color: #007bff; }
+        /* Footer */
         footer {
             background: #333;
             color: #fff;
             padding: 40px 20px;
-            text-align: center;
-        }
-        footer h2 {
-            font-size: 2em;
-            margin-bottom: 20px;
         }
         footer form {
             max-width: 500px;
-            margin: 0 auto;
+            margin: 20px auto;
         }
         footer input, footer textarea {
             width: 100%;
@@ -172,13 +225,10 @@
             from { transform: translateY(50px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
-        /* Responsive Design */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2em; }
-            .hero p { font-size: 1.2em; }
-            nav ul { flex-direction: column; }
-            nav ul li { margin: 10px 0; }
-            .testimonial { width: 100%; }
+            .hero-content h1 { font-size: 2.5em; }
+            .service-container { flex-direction: column; }
+            .service-container img, .service-container p { width: 100%; }
         }
     </style>
 </head>
@@ -196,22 +246,54 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div>
-            <h1>Joseph Asemota</h1>
+        <div class="hero-slider">
+            <div class="hero-slide"></div>
+            <div class="hero-slide"></div>
+            <div class="hero-slide"></div>
+        </div>
+        <div class="hero-content">
+            <h1 id="name-animation"></h1>
             <p>I am a Content Writer and Digital Strategist</p>
         </div>
     </section>
 
     <!-- About Me Section -->
-    <section class="about" id="about">
+    <section class="about section" id="about">
         <h2>About Me</h2>
         <p>
-            I’m Joseph Asemota, a passionate content writer and digital strategist based in Amsterdam. With over five years of experience, I craft compelling narratives and data-driven strategies that elevate brands and engage audiences. My journey began with a love for storytelling, which I’ve honed into a career helping businesses communicate effectively in the digital space. Specializing in SEO, social media, and content marketing, I blend creativity with analytics to deliver measurable results. Whether it’s writing blog posts, developing campaigns, or optimizing digital presence, I thrive on turning ideas into impactful realities. When I’m not working, you’ll find me exploring new cultures, reading about tech trends, or sipping coffee while brainstorming my next big project. Let’s connect and create something extraordinary together! (Word count: ~150)
+            I’m Joseph Asemota, a passionate content writer and digital strategist based in Amsterdam. With over five years of experience, I craft compelling narratives and data-driven strategies that elevate brands and engage audiences. My journey began with a love for storytelling, which I’ve honed into a career helping businesses communicate effectively in the digital space. Specializing in SEO, social media, and content marketing, I blend creativity with analytics to deliver measurable results. Whether it’s writing blog posts, developing campaigns, or optimizing digital presence, I thrive on turning ideas into impactful realities. When I’m not working, you’ll find me exploring new cultures, reading about tech trends, or sipping coffee while brainstorming my next big project. Let’s connect and create something extraordinary together!
         </p>
     </section>
 
+    <!-- Blog Writing Section -->
+    <section class="blog-writing section">
+        <h2>Blog Writing</h2>
+        <div class="service-container">
+            <img src="https://images.unsplash.com/photo-1455390582262-044cdead681a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Blog Writing">
+            <p>My blog writing services deliver engaging, SEO-optimized content that drives traffic and builds your brand’s voice. From thought leadership to lifestyle pieces, I create posts that resonate with your audience.</p>
+        </div>
+    </section>
+
+    <!-- Creative Writing Section -->
+    <section class="creative-writing section">
+        <h2>Creative Writing</h2>
+        <div class="service-container">
+            <p>Unlock the power of imagination with my creative writing services. I craft stories, scripts, and narratives that captivate and inspire, perfect for marketing campaigns or personal projects.</p>
+            <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Creative Writing">
+        </div>
+    </section>
+
+    <!-- Business Writing Section -->
+    <section class="business-writing section">
+        <h2>Business Writing</h2>
+        <div class="service-container">
+            <img src="https://images.unsplash.com/photo-1520583457221-a6e604b013f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Business Writing">
+            <p>My business writing services provide clear, professional content for reports, proposals, and communications. I help you articulate your vision and connect with stakeholders effectively.</p>
+        </div>
+    </section>
+
     <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonials">
+    <section class="testimonials section" id="testimonials">
         <h2>Testimonials</h2>
         <div class="testimonial-container">
             <div class="testimonial">
@@ -233,7 +315,7 @@
     </section>
 
     <!-- Footer / Contact Section -->
-    <footer id="contact">
+    <footer class="section" id="contact">
         <h2>Contact Me</h2>
         <form id="contact-form">
             <input type="text" placeholder="Your Name" required>
@@ -244,7 +326,20 @@
     </footer>
 
     <script>
-        // Basic form submission handling
+        // Letter-by-letter animation for name
+        const name = "Joseph Asemota";
+        const nameElement = document.getElementById('name-animation');
+        let index = 0;
+        function typeLetter() {
+            if (index < name.length) {
+                nameElement.textContent += name[index];
+                index++;
+                setTimeout(typeLetter, 100);
+            }
+        }
+        window.onload = typeLetter;
+
+        // Form submission handling
         document.getElementById('contact-form').addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Thank you for your message! I’ll get back to you soon.');
