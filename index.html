@@ -62,13 +62,14 @@
             width: 300%;
             height: 100%;
             display: flex;
-            animation: slideLeft 18s infinite ease-in-out;
+            animation: slideLeft 15s infinite linear;
         }
         .hero-slide {
             width: 33.33%;
             height: 100%;
             background-size: cover;
             background-position: center;
+            transition: transform 0.5s ease-in-out; /* Smooth transition */
         }
         .hero-slide:nth-child(1) {
             background-image: url('https://images.unsplash.com/photo-1455390582262-044cdead681a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); /* Writing */
@@ -77,17 +78,16 @@
             background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); /* Happy Customers */
         }
         .hero-slide:nth-child(3) {
-            background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); /* Beachside */
+            background-image: url('https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); /* New Beachside */
         }
         @keyframes slideLeft {
             0% { transform: translateX(0); }
-            33% { transform: translateX(0); }
-            33.03% { transform: translateX(-33.33%); }
-            66% { transform: translateX(-33.33%); }
-            66.03% { transform: translateX(-66.66%); }
-            99% { transform: translateX(-66.66%); }
-            99.1% { transform: translateX(0); }
-            100% { transform: translateX(0); }
+            30% { transform: translateX(0); } /* Hold first image */
+            33.33% { transform: translateX(-33.33%); } /* Transition to second */
+            63.33% { transform: translateX(-33.33%); } /* Hold second */
+            66.66% { transform: translateX(-66.66%); } /* Transition to third */
+            96.66% { transform: translateX(-66.66%); } /* Hold third */
+            100% { transform: translateX(0); } /* Back to first */
         }
         .hero-content {
             position: absolute;
