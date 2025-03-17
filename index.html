@@ -1,160 +1,266 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joseph Asemota</title>
-    <meta name="description" content="Amsterdam based art director specialized in branding, packaging, retail communication and web design.">
-    <meta property="og:title" content="Joseph Asemota">
-    <meta property="og:description" content="Amsterdam based art director specialized in branding, packaging, retail communication and web design.">
-    <meta property="og:url" content="https://www.josephasemota.com">
-    <meta property="og:type" content="website">
-    <meta name="twitter:title" content="Joseph Asemota">
-    <meta name="twitter:description" content="Amsterdam based art director specialized in branding, packaging, retail communication and web design.">
-    <meta name="twitter:card" content="summary">
-
+    <title>Joseph Asemota - Portfolio</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            line-height: 1.6;
-            background-color: #f5f5f5;
-            color: #333;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
         }
-        header {
-            background: #fff;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
+        body {
+            background: #f0f0f0;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        /* Navigation Bar */
+        nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             z-index: 1000;
         }
-        header h1 {
-            margin: 0;
-            font-size: 2em;
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
         }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+        nav ul li {
+            margin: 0 20px;
         }
-        .section {
-            padding: 40px 0;
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #007bff;
+        }
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #007bff, #00c4cc);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 20px;
+        }
+        .hero h1 {
+            font-size: 3em;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .hero p {
+            font-size: 1.5em;
+            margin-top: 20px;
+            animation: fadeIn 2s ease-in-out 0.5s;
+            animation-fill-mode: both;
+        }
+        /* About Section */
+        .about {
+            padding: 80px 20px;
+            background: #fff;
             text-align: center;
         }
-        .instagram-feed {
+        .about h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            animation: slideIn 1s ease-out;
+        }
+        .about p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1em;
+            animation: slideIn 1s ease-out 0.3s;
+            animation-fill-mode: both;
+        }
+        /* Testimonials Section */
+        .testimonials {
+            padding: 80px 20px;
+            background: #f8f9fa;
+            text-align: center;
+        }
+        .testimonials h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            animation: slideIn 1s ease-out;
+        }
+        .testimonial-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
         }
-        .instagram-feed img {
-            width: 100%;
-            max-width: 300px;
-            height: auto;
+        .testimonial {
+            background: #fff;
+            padding: 20px;
             border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .testimonial:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .testimonial img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 15px;
             transition: transform 0.3s;
         }
-        .instagram-feed img:hover {
-            transform: scale(1.05);
+        .testimonial img:hover {
+            transform: scale(1.1);
         }
-        .contact-section {
-            background: #fff;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            margin: 20px auto;
-            max-width: 600px;
+        .testimonial p {
+            font-style: italic;
         }
-        .contact-section a {
-            display: inline-block;
-            background: #333;
-            color: #fff;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 20px;
-            transition: background 0.3s;
+        .testimonial h4 {
+            margin-top: 10px;
+            color: #007bff;
         }
-        .contact-section a:hover {
-            background: #555;
-        }
+        /* Footer / Contact Section */
         footer {
             background: #333;
             color: #fff;
-            padding: 20px;
+            padding: 40px 20px;
             text-align: center;
         }
-        .social-links {
-            margin-top: 20px;
+        footer h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
         }
-        .social-links a {
+        footer form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        footer input, footer textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+        footer button {
+            background: #007bff;
             color: #fff;
-            margin: 0 10px;
-            text-decoration: none;
-            font-size: 1.2em;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
         }
-        .social-links a:hover {
-            color: #ddd;
+        footer button:hover {
+            background: #0056b3;
         }
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .instagram-feed img {
-                max-width: 100%;
-            }
-            .contact-section {
-                margin: 20px;
-            }
+            .hero h1 { font-size: 2em; }
+            .hero p { font-size: 1.2em; }
+            nav ul { flex-direction: column; }
+            nav ul li { margin: 10px 0; }
+            .testimonial { width: 100%; }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div>
             <h1>Joseph Asemota</h1>
+            <p>I am a Content Writer and Digital Strategist</p>
         </div>
-    </header>
+    </section>
 
-    <main>
-        <!-- Instagram Feed Section -->
-        <section class="section">
-            <div class="container">
-                <h2><em>Latest on</em> Instagram</h2>
-                <div class="instagram-feed">
-                    <a href="https://www.instagram.com/josephasemota/" target="_blank">
-                        <img src="https://via.placeholder.com/300x300?text=Instagram+Post+1" alt="Instagram Post 1">
-                    </a>
-                    <a href="https://www.instagram.com/josephasemota/" target="_blank">
-                        <img src="https://via.placeholder.com/300x300?text=Instagram+Post+2" alt="Instagram Post 2">
-                    </a>
-                    <a href="https://www.instagram.com/josephasemota/" target="_blank">
-                        <img src="https://via.placeholder.com/300x300?text=Instagram+Post+3" alt="Instagram Post 3">
-                    </a>
-                </div>
+    <!-- About Me Section -->
+    <section class="about" id="about">
+        <h2>About Me</h2>
+        <p>
+            I’m Joseph Asemota, a passionate content writer and digital strategist based in Amsterdam. With over five years of experience, I craft compelling narratives and data-driven strategies that elevate brands and engage audiences. My journey began with a love for storytelling, which I’ve honed into a career helping businesses communicate effectively in the digital space. Specializing in SEO, social media, and content marketing, I blend creativity with analytics to deliver measurable results. Whether it’s writing blog posts, developing campaigns, or optimizing digital presence, I thrive on turning ideas into impactful realities. When I’m not working, you’ll find me exploring new cultures, reading about tech trends, or sipping coffee while brainstorming my next big project. Let’s connect and create something extraordinary together! (Word count: ~150)
+        </p>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+        <h2>Testimonials</h2>
+        <div class="testimonial-container">
+            <div class="testimonial">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Client 1">
+                <p>"Joseph transformed our content strategy with his creative insights. Our engagement doubled in just three months!"</p>
+                <h4>Sarah Mitchell, Marketing Director</h4>
             </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section class="section">
-            <div class="container">
-                <div class="contact-section">
-                    <h1>Have a project<br>in mind<em>?</em></h1>
-                    <a href="mailto:hello@josephasemota.com">LET’S WORK TOGETHER ➺</a>
-                </div>
+            <div class="testimonial">
+                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Client 2">
+                <p>"His writing is sharp and strategic. Joseph’s work made our brand stand out in a crowded market."</p>
+                <h4>James Carter, CEO</h4>
             </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <img src="https://via.placeholder.com/50x50?text=Logo" alt="Joseph Asemota Logo" style="max-width: 50px;">
-            <div class="social-links">
-                <a href="https://www.instagram.com/josephasemota/" target="_blank">Instagram</a>
-                <a href="https://x.com/joseph_asemota" target="_blank">X</a>
-                <a href="https://linkedin.com/in/josephasemota/" target="_blank">LinkedIn</a>
+            <div class="testimonial">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Client 3">
+                <p>"A true digital expert! Joseph’s strategies boosted our online visibility beyond expectations."</p>
+                <h4>Emily Stone, Entrepreneur</h4>
             </div>
         </div>
+    </section>
+
+    <!-- Footer / Contact Section -->
+    <footer id="contact">
+        <h2>Contact Me</h2>
+        <form id="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
     </footer>
+
+    <script>
+        // Basic form submission handling
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I’ll get back to you soon.');
+            this.reset();
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
