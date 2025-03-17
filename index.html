@@ -62,7 +62,7 @@
             width: 300%;
             height: 100%;
             display: flex;
-            animation: slide 15s infinite ease-in-out;
+            animation: slideLeft 18s infinite ease-in-out;
         }
         .hero-slide {
             width: 33.33%;
@@ -79,10 +79,14 @@
         .hero-slide:nth-child(3) {
             background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); /* Beachside */
         }
-        @keyframes slide {
+        @keyframes slideLeft {
             0% { transform: translateX(0); }
-            33% { transform: translateX(-33.33%); }
-            66% { transform: translateX(-66.66%); }
+            33% { transform: translateX(0); }
+            33.03% { transform: translateX(-33.33%); }
+            66% { transform: translateX(-33.33%); }
+            66.03% { transform: translateX(-66.66%); }
+            99% { transform: translateX(-66.66%); }
+            99.1% { transform: translateX(0); }
             100% { transform: translateX(0); }
         }
         .hero-content {
@@ -269,7 +273,7 @@
     <section class="blog-writing section">
         <h2>Blog Writing</h2>
         <div class="service-container">
-            <img src="https://images.unsplash.com/photo-1455390582262-044cdead681a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Blog Writing">
+            <img src="https://images.unsplash.com/photo-1505330621659-bf3f3c6eee2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Blog Writing">
             <p>My blog writing services deliver engaging, SEO-optimized content that drives traffic and builds your brand’s voice. From thought leadership to lifestyle pieces, I create posts that resonate with your audience.</p>
         </div>
     </section>
@@ -287,7 +291,7 @@
     <section class="business-writing section">
         <h2>Business Writing</h2>
         <div class="service-container">
-            <img src="https://images.unsplash.com/photo-1520583457221-a6e604b013f9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Business Writing">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Business Writing">
             <p>My business writing services provide clear, professional content for reports, proposals, and communications. I help you articulate your vision and connect with stakeholders effectively.</p>
         </div>
     </section>
